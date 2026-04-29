@@ -1,0 +1,38 @@
+groups:
+  - name: homelab_alerts
+    rules:
+      - alert: InstanceDown
+        expr: up == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: 'Serwer {{ $labels.instance }} niedostepny!'
+          description: 'Host {{ $labels.host }} nie odpowiada od ponad 1 minuty.'
+
+      - alert: HighCPUUsage
+        expr: 100 - (avg by(instance)(irate(node_cpu_seconds_total{mode="idle"}[5m])) * 100) > 85
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: 'Wysokie CPU na {{ $labels.instance }}'
+          description: 'CPU powyzej 85% przez 5 minut. Wartosc: {{ $value | printf "%.1f" }}%'
+
+      - alert: LowDiskSpace
+        expr: (node_filesystem_free_bytes{fstype!~"tmpfs|overlay"} / node_filesystem_size_bytes) * 100 < 15
+        for: 2m
+        labels:
+          severity: critical
+        annotations:
+          summary: 'Malo miejsca na dysku {{ $labels.mountpoint }}'
+          description: 'Pozostalo {{ $value | printf "%.1f" }}% wolnego miejsca.'
+
+      - alert: HighMemoryUsage
+        expr: (1 - node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes) * 100 > 90
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: 'Wysokie RAM na {{ $labels.instance }}'
+          description: 'Uzycie RAM: {{ $value | printf "%.1f" }}%'
