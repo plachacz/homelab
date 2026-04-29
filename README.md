@@ -6,9 +6,6 @@ sieciowej klasy enterprise. Projekt obejmuje segmentację sieci
 VLAN, zarządzanie użytkownikami przez Active Directory, 
 centralny monitoring oraz system powiadomień.
 
-## Architektura sieci
-[wklej schemat sieci jako obrazek]
-
 ## Użyte technologie
 - **pfSense** — Firewall, segmentacja VLAN, DHCP Relay
 - **Windows Server 2012** — Active Directory, DNS, DHCP
