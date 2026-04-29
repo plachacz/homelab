@@ -53,18 +53,18 @@ centralny monitoring oraz system powiadomień.
 [../screenshots/ad-structure.png]
 
 ### Reguły firewall pfSense
-[../screenshots/pfsense-firewall-employees]
-[../screenshots/pfsense-firewall-guests]
+[../screenshots/pfsense-firewall-employees.png]
+[../screenshots/pfsense-firewall-guests.png]
 
 ### Segmentacja VLAN
-[../screenshots/pfsense-interfaces]
+[../screenshots/pfsense-interfaces.png]
 
 ### Grafana Dashboard
-[../screenshots/grafana-dashboard-linux]
-[../screenshots/grafana-dashboard-windows]
+[../screenshots/grafana-dashboard-linux.png]
+[../screenshots/grafana-dashboard-windows.png]
 
 ### Powiadomienie Slack
-[../screenshots/slack-alert-notification]
+[../screenshots/slack-alert-notification.png]
 
 ## Środowisko
 Całość uruchomiona na VirtualBox z następującymi maszynami wirtualnymi:
